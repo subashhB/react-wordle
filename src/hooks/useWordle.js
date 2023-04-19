@@ -9,7 +9,7 @@ const useWordle = (solution) =>{
 
     //Format a guess into an array of letter objects e.g. [{key: 'a', color: 'gray'}]
     const formatGuess = () =>{
-
+        console.log("Formatting the guess----", currentGuess)
     }
 
     //Add a new Guess to the guesses state.
@@ -22,6 +22,24 @@ const useWordle = (solution) =>{
     //Handle key press events and track current guesses.
     //if the user presses Enter, Add a new Guess.
     const handleKeyup =({key}) =>{
+        if(key === 'Enter'){
+            //Don't Submit if the turns are greater than 5
+            if(turn > 5){
+                console.log('You have used all your guesses');
+                return;
+            }
+            //Don't Submit if not a 5 letter word
+            if(currentGuess.length !== 5){
+                console.log('Word must be 5 characters long.');
+                return;
+            }
+            //Don't Submit if already guessed
+            if(history.includes(currentGuess)){
+                console.log('You have already guessed this word.');
+                return;
+            }
+            formatGuess();
+        }
         if(key === 'Backspace'){
             setCurrentGuess((prev)=>{
                 return prev.slice(0,-1)
