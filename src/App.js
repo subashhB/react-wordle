@@ -11,12 +11,11 @@ function App() {
         const randomSolution = json[Math.floor(Math.random()*json.length)];
         setSolution(randomSolution.word);
       })
-  },[])
+  },[setSolution])
   return (
     <div className="App">
       <h1>Wordle</h1>
-      
-      {solution && (<Wordle/>)}
+      {solution && (<Wordle solution={solution}/>)}
     </div>
   );
 }
