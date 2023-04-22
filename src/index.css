@@ -31,3 +31,18 @@ h1 {
   font-weight: bold;
   font-size: 2.5em;
 }
+
+.row >div.green{
+  background: #6ca965;
+  border-color: #6ca965;
+}
+
+.row> div.gray{
+  background: #787c7f;
+  border-color: #787c7f;
+}
+
+.row> div.yellow{
+  background: #c8b653;
+  border-color: #c8b653;
+}
